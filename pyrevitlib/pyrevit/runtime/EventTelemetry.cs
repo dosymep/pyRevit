@@ -341,12 +341,8 @@ namespace PyRevitLabs.PyRevit.Runtime {
         public void UIApplication_ThemeChanged(object sender, Autodesk.Revit.UI.Events.ThemeChangedEventArgs e) {
             LogEventTelemetryRecord(new EventTelemetryRecord {
                 type = EventUtils.GetEventName(EventType.UIApplication_ThemeChanged),
-                docname = e.Document != null ? e.Document.Title : "",
-                docpath = e.Document != null ? e.Document.PathName : "",
-                projectnum = GetProjectNumber(e.Document),
-                projectname = GetProjectName(e.Document),
                 args = new Dictionary<string, object> {
-                    { "UI Theme was changed" },
+                    { "UI Theme was changed" , null},
                 }
             }, sender, e);
         }
